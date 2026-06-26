@@ -15,6 +15,9 @@ class Settings(BaseSettings):
 
     database_url: str = "sqlite:///./tradepilot.db"
 
+    # Market Data Provider
+    market_data_provider: str = "mock"
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
@@ -29,3 +32,4 @@ def get_settings() -> Settings:
 
 
 settings = get_settings()
+

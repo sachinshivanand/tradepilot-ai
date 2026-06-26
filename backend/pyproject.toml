@@ -20,10 +20,12 @@ dependencies = [
     "alembic>=1.18",
     "pydantic-settings>=2.14",
     "python-dotenv>=1.2",
+    "numpy>=2.3",
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
 
 [tool.ruff]
 line-length = 100

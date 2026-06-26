@@ -2,10 +2,9 @@
 Database health endpoint.
 """
 
+from fastapi import APIRouter, Depends
 from sqlalchemy import text
 from sqlalchemy.orm import Session
-
-from fastapi import APIRouter, Depends
 
 from app.db.session import get_db
 
