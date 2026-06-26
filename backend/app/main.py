@@ -1,30 +1,17 @@
+"""
+TradePilot AI application entry point.
+"""
+
 from fastapi import FastAPI
 
+from app.api.router import api_router
+from app.core.config import settings
+from app.core.lifespan import lifespan
+
 app = FastAPI(
-    title="TradePilot AI",
-    version="0.1.0",
-    description="AI-powered NSE market scanner",
+    title=settings.app_name,
+    version=settings.app_version,
+    lifespan=lifespan,
 )
 
-
-@app.get("/")
-async def root():
-    return {
-        "application": "TradePilot AI",
-        "status": "running",
-        "version": "0.1.0",
-    }
-
-
-@app.get("/health")
-async def health():
-    return {
-        "status": "healthy",
-    }
-
-
-@app.get("/version")
-async def version():
-    return {
-        "version": "0.1.0",
-    }
+app.include_router(api_router)
